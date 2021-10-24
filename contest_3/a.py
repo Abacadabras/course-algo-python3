@@ -14,8 +14,8 @@ def foo_main() -> int:
     for symbol in string:
         if '0' <= symbol <= '9':
             number = number + symbol
-        else:
-            result *= int(number) if number else 1
+        elif number != '':
+            result *= int(number)
             number = ''
 
     return result
