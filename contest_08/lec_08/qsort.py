@@ -21,7 +21,7 @@ def qsort(A: list, start=None, stop=None):
     while i < j:
         while A[i] < A[stop]:
             i += 1
-        while j > 0 and A[j] >= A[stop]:
+        while j > start and A[j] >= A[stop]:
             j -= 1
         if i < j:
             A[i], A[j] = A[j], A[i]
