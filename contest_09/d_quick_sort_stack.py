@@ -24,18 +24,19 @@
 
 def foo_main(n: int, A: list) -> int:
 
-    QuickSort(A)
+    quick_sort(A)
 
     return sum(A[n//2:]) - sum(A[:n//2])
 
 
-def QuickSort(a: list):
+def quick_sort(a: list):
+
     stack = [0] * (4 + len(a) // 2)  # создаём стек
     k = 0  # дно
     stack[0] = 0  # указатель на позицию левой границы половины
     stack[1] = len(a) - 1  # -||- правой
     while k >= 0:
-        i = QuickSortPos(a, stack[k], stack[k + 1])
+        i = quick_sort_pos(a, stack[k], stack[k + 1])
         if i != stack[k + 1]:
             RL = i + 1  # левая граница правого подинтервала
         else:
@@ -57,9 +58,10 @@ def QuickSort(a: list):
             stack[k + 1] = LR
 
 
-def QuickSortPos(A: list, start: int, stop: int) ->int:
+def quick_sort_pos(A: list, start: int, stop: int) -> int:
+
     i = start
-    j = stop - 1
+    j = stop
     while i < j:
         while A[i] < A[stop]:
             i += 1
@@ -67,6 +69,8 @@ def QuickSortPos(A: list, start: int, stop: int) ->int:
             j -= 1
         if i < j:
             A[i], A[j] = A[j], A[i]
+
+    A[stop], A[i] = A[i], A[stop]
 
     return i
 
