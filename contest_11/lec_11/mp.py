@@ -21,6 +21,6 @@ if __name__ == '__main__':
 
     print(weights)
     print(price)
-    print(' ',' '.join(map(lambda x: f'{x:>4}', range(21))))
+    print(' ', ' '.join(map(lambda x: f'{x:>4}', range(21))))
     for j in range(11):
         print(j, *map(lambda x: f'{x:0.02f}', R[j]))
